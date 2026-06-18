@@ -50,6 +50,7 @@ AGENTS.md             Instrucciones operativas para agentes
 | Skill | Cuándo usar | Ruta |
 |---|---|---|
 | `aws-course-notes` | Convertir PDFs/ODT/transcripts AWS a apuntes Markdown | `.opencode/skills/aws-course-notes/SKILL.md` |
+| `anki-note-questions` | Crear preguntas Anki/flashcards desde apuntes respetando estructura de repaso activo | `.opencode/skills/anki-note-questions/SKILL.md` |
 | `create-readme` | Crear o actualizar `README.md` | global skill |
 | `create-agents-md` | Crear o actualizar `AGENTS.md` | global skill |
 | `cognitive-doc-design` | Mejorar documentación para lectura rápida | global skill |
@@ -57,6 +58,7 @@ AGENTS.md             Instrucciones operativas para agentes
 ## Auto-invoke obligatorio
 
 - Para apuntes AWS desde curso local: cargar `aws-course-notes` primero.
+- Para preguntas Anki desde apuntes: cargar `anki-note-questions` primero.
 - Para README: cargar `create-readme` y aplicar diseño cognitivo.
 - Para AGENTS.md: cargar `create-agents-md`.
 
