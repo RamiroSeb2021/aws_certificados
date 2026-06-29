@@ -91,6 +91,13 @@
 - Model Cards documentan propósito, datos, métricas, limitaciones y detalles críticos del modelo.
 - Model Dashboard centraliza visualización, búsqueda y monitoreo de modelos.
 
+#### Error de examen / Punto de confusión
+
+- **Model Cards**: crear documentación estructurada del modelo, usos previstos, riesgos, detalles de entrenamiento, métricas y resultados de evaluación.
+- **Model Monitor**: monitorear modelos ya desplegados en producción, drift, calidad, rendimiento y alertas.
+- **Model Dashboard**: ver, buscar y explorar modelos centralmente.
+- **Role Manager**: gestionar permisos y roles IAM para SageMaker.
+
 ### JumpStart, Canvas, MLflow, Clarify y Ground Truth
 
 - JumpStart: modelos y soluciones preconfiguradas, incluyendo FM públicos y propietarios.

@@ -31,3 +31,8 @@
 
 - Kendra = búsqueda empresarial inteligente.
 - Amazon Q Business puede integrarse con Kendra para usar datos empresariales.
+
+### Error de examen / Punto de confusión
+
+- Kendra encaja cuando el problema es buscar en repositorios empresariales y devolver respuestas relevantes.
+- No es la pieza principal para extraer texto de documentos escaneados ni para analizar imágenes dentro de PDFs; para eso, pensar en Textract y Rekognition según el tipo de contenido.

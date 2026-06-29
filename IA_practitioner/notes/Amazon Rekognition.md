@@ -38,3 +38,9 @@
 - Rekognition = imágenes/video.
 - Para detectar objetos, rostros, texto en imagen, etiquetas o moderación multimedia: Amazon Rekognition.
 - Para documentos escaneados con formularios/tablas: Amazon Textract.
+
+### Error de examen / Punto de confusión
+
+- Rekognition sirve para analizar imágenes y video; puede detectar objetos, rostros, etiquetas, texto en imagen o contenido inapropiado.
+- Si el foco es comprensión de documentos escaneados, formularios, tablas u OCR documental, Textract suele ser mejor encaje.
+- Para leer documentos en voz alta, Rekognition no reemplaza la combinación Textract + Polly.

@@ -45,6 +45,12 @@
 - Gobernanza.
 - Transparencia.
 
+### Error de examen / Punto de confusión
+
+- En preguntas de GenAI, no confundir dimensiones generales de IA responsable con riesgos especialmente asociados a salidas generativas.
+- Propiedad intelectual, toxicidad y alucinaciones aparecen como riesgos fuertes de GenAI porque el modelo puede generar contenido similar a material protegido, contenido dañino o afirmaciones plausibles pero incorrectas.
+- Privacidad, seguridad, explicabilidad y transparencia siguen siendo importantes, pero pueden funcionar como categorías más generales según cómo esté redactado el escenario.
+
 ## Herramientas y servicios AWS
 
 - Evaluaciones de modelos en Amazon Bedrock: comparar y seleccionar FM con métricas.
@@ -65,6 +71,12 @@
 
 - Fuente menciona estándares/regulaciones: ISO 42001, SOC 2, leyes de responsabilidad algorítmica, GDPR, EEOC y NIST.
 - SageMaker Model Cards apoyan transparencia, cumplimiento y auditoría documentando origen de datos, fuentes, licencias, sesgos, pruebas y consideraciones.
+
+### Error de examen / Punto de confusión
+
+- Si el escenario pide documentar usos previstos, riesgos, entrenamiento, rendimiento o resultados de evaluación de un modelo, pensar en **SageMaker Model Cards**.
+- No confundir con **SageMaker Model Monitor**, que vigila calidad, drift, sesgo y rendimiento en producción.
+- No confundir con **AWS CloudTrail** o **AWS Config**: ayudan a auditar actividad/API o configuración de recursos, no a crear documentación específica del modelo.
 
 ## Gobernanza de datos
 

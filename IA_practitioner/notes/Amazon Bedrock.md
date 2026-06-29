@@ -58,6 +58,11 @@
 - Casos de uso: atención al cliente, asistentes virtuales con información actualizada, búsqueda avanzada.
 - Bases vectoriales mencionadas: OpenSearch Service, DocumentDB, Aurora, RDS for PostgreSQL y Neptune.
 
+### Error de examen / Punto de confusión
+
+- Para búsqueda por similitud con embeddings o vectores, pensar en servicios/base de datos que puedan almacenar y consultar vectores.
+- Según la fuente, OpenSearch Service, DocumentDB y Neptune aparecen asociados a bases de datos de vectores para RAG; S3, QuickSight o Redshift no son la respuesta directa cuando la pista es búsqueda vectorial eficiente.
+
 ## Guardrails y agentes
 
 - Guardrails: controles para uso seguro, ético y responsable.
@@ -72,6 +77,18 @@
 - Evaluación humana: criterios subjetivos, expertos o equipo gestionado por AWS.
 - Solo se elige un tipo de tarea por trabajo de evaluación.
 - Métricas explicadas: ROUGE, BLEU y BERTScore.
+
+### Error de examen / Punto de confusión
+
+- Si el escenario pide comparar LLMs o elegir el mejor FM para una tarea, pensar en **Amazon Bedrock Model Evaluation**.
+- Si además pide bloquear temas, filtrar contenido dañino, proteger PII o aplicar controles de seguridad/responsabilidad, pensar en **Amazon Bedrock Guardrails**.
+- No confundir con Amazon Lex: Lex ayuda a construir interfaces conversacionales, no a evaluar FM ni aplicar guardrails de Bedrock.
+
+## Bedrock vs SageMaker JumpStart
+
+- Bedrock encaja cuando se quiere consumir foundation models administrados mediante API, sin entrenar, alojar ni gestionar el modelo.
+- SageMaker JumpStart ofrece modelos y soluciones preconfiguradas dentro de SageMaker, pero el escenario puede implicar despliegue o gestión de endpoints.
+- Para generar imágenes con FM administrados y sin experiencia de ML, la pista fuerte es Bedrock.
 
 ## Costes en fuente
 
@@ -89,3 +106,4 @@
 - Fine-tuning = adaptar a tarea específica.
 - Continuous pre-training = conocimiento de dominio con datos sin etiquetar.
 - Guardrails = seguridad, temas bloqueados, PII, jailbreak e inyección de prompts.
+- Para profundizar ajustes de modelos GenAI: ver `Ajuste de modelos GenAI.md`.

@@ -26,3 +26,8 @@
 - Polly = text-to-speech.
 - Transcribe = speech-to-text.
 - Si el escenario pide convertir artículos/texto en audio, elegir Amazon Polly.
+
+### Error de examen / Punto de confusión
+
+- Polly no extrae texto de imágenes o PDFs: convierte texto ya disponible en voz natural.
+- Si el texto viene de documentos fotografiados o escaneados, combinar mentalmente Textract para OCR y Polly para lectura hablada.

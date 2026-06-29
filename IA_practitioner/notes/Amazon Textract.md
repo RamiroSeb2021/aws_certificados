@@ -26,3 +26,8 @@
 
 - Textract = extraer texto/datos de documentos.
 - Diferenciar de Rekognition: Rekognition analiza imágenes/video; Textract entiende documentos escaneados.
+
+### Error de examen / Punto de confusión
+
+- Si el escenario pide extraer texto impreso, escritura a mano, formularios o tablas desde documentos/PDF/imágenes, la pieza principal es Textract.
+- Para una app que lee contenido en voz alta desde documentos fotografiados: Textract extrae el texto y Polly lo convierte a voz.

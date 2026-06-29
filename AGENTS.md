@@ -11,6 +11,7 @@
 - `IA_practitioner/` contiene PDF fuente y apuntes Markdown separados por tema de AWS AI Practitioner.
 - `cloud_practitioner/` contiene ODT fuente y un Markdown consolidado del curso Cloud Practitioner.
 - `.opencode/skills/aws-course-notes/` contiene skill local para convertir material AWS a apuntes Markdown.
+- `.opencode/skills/udemy-wrong-questions/` contiene skill local para convertir preguntas incorrectas de Udemy en reparaciones de estudio para AI Practitioner.
 - No hay comandos de build/test verificados para producto ejecutable.
 
 **Documentado ≠ implementado**: si algún apunte describe servicios AWS, arquitecturas o flujos, eso es contenido de estudio, no implementación en este repo.
@@ -51,6 +52,7 @@ AGENTS.md             Instrucciones operativas para agentes
 |---|---|---|
 | `aws-course-notes` | Convertir PDFs/ODT/transcripts AWS a apuntes Markdown | `.opencode/skills/aws-course-notes/SKILL.md` |
 | `anki-note-questions` | Crear preguntas Anki/flashcards desde apuntes respetando estructura de repaso activo | `.opencode/skills/anki-note-questions/SKILL.md` |
+| `udemy-wrong-questions` | Analizar preguntas incorrectas de Udemy, actualizar apuntes de AI Practitioner y devolver plan de estudio | `.opencode/skills/udemy-wrong-questions/SKILL.md` |
 | `create-readme` | Crear o actualizar `README.md` | global skill |
 | `create-agents-md` | Crear o actualizar `AGENTS.md` | global skill |
 | `cognitive-doc-design` | Mejorar documentación para lectura rápida | global skill |
@@ -58,6 +60,7 @@ AGENTS.md             Instrucciones operativas para agentes
 ## Auto-invoke obligatorio
 
 - Para apuntes AWS desde curso local: cargar `aws-course-notes` primero.
+- Para preguntas incorrectas de Udemy o pantallazos de examen AI Practitioner: cargar `udemy-wrong-questions` y `aws-course-notes` primero.
 - Para preguntas Anki desde apuntes: cargar `anki-note-questions` primero.
 - Para README: cargar `create-readme` y aplicar diseño cognitivo.
 - Para AGENTS.md: cargar `create-agents-md`.
