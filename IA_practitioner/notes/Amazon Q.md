@@ -24,6 +24,12 @@
 - Responde preguntas, genera contenido y completa tareas usando datos empresariales.
 - Filtra respuestas generativas según permisos de usuario y grupo.
 
+### Consultas en lenguaje natural sobre datos empresariales
+
+- Amazon Q Business encaja cuando usuarios de negocio necesitan preguntar en lenguaje natural sobre información empresarial sin programar.
+- La pista fuerte no es “analizar sentimiento” ni “entrenar modelos”, sino responder preguntas complejas usando datos internos, permisos y conectores empresariales.
+- Si el escenario habla de datos estructurados de negocio y respuestas rápidas para analistas, Amazon Q suele pesar más que Comprehend, Kendra o SageMaker Studio.
+
 ## Conectores y plugins
 
 - Conectores sincronizan datos desde repositorios de contenido.
@@ -54,6 +60,7 @@
 ## Claves de examen
 
 - Q Business = chat con datos empresariales y permisos.
+- Q Business = preguntas en lenguaje natural sobre datos internos; no es Comprehend ni SageMaker Studio.
 - Q Apps = apps sin código desde lenguaje natural.
 - Q Developer = asistencia para desarrollo, IDE/CLI y seguridad de código.
 - Q puede integrarse en QuickSight y Connect.

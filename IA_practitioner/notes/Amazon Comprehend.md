@@ -20,6 +20,14 @@
 - Extraer información clave: palabras y frases importantes.
 - Analizar sentimiento: positivo, negativo o neutro.
 
+### Sentimiento vs otros servicios
+
+- Para feedback de clientes en texto y detección de sentimiento positivo, negativo, neutral o mixto, Amazon Comprehend es la pista directa.
+- Amazon Translate traduce idiomas; no interpreta sentimiento como objetivo principal.
+- Amazon Textract extrae texto/datos de documentos; no analiza sentimiento por sí mismo.
+- Amazon Polly convierte texto en voz; no entiende ni clasifica el texto.
+- Amazon Bedrock puede resolver tareas NLP con FM, pero si el examen pide servicio específico de análisis de sentimiento administrado, Comprehend suele ser el encaje más directo.
+
 ## Amazon Comprehend Medical
 
 - Servicio NLP para textos clínicos no estructurados.
@@ -38,3 +46,4 @@
 - Comprehend = entender texto, sentimiento, idioma, entidades/frases.
 - Comprehend Medical = NLP para textos clínicos.
 - Diferenciar de Translate: no traduce como objetivo principal.
+- Diferenciar de Textract/Polly: extraer texto o leerlo en voz alta no equivale a analizar sentimiento.

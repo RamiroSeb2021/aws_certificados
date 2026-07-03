@@ -60,6 +60,14 @@
 - Amazon Augmented AI: revisión humana cuando sea necesario.
 - SageMaker: gobernanza de proyectos ML con control y visibilidad.
 
+### Revisión humana, sesgo y auditoría
+
+- **SageMaker Clarify**: sesgo y explicabilidad en modelos de ML.
+- **Amazon Augmented AI (A2I)**: revisión humana de predicciones o decisiones cuando hace falta validación humana.
+- **SageMaker Ground Truth**: etiquetado de datos y datasets para entrenamiento; no es lo mismo que auditoría humana de salidas.
+- **AWS Audit Manager**: recopila evidencia y ayuda a preparar auditorías sobre uso y controles de AWS.
+- Si el escenario combina no discriminación + auditoría/regulación, pensar en Clarify para sesgo y Audit Manager para evidencia de auditoría.
+
 ## AWS AI Service Cards y Responsible AI Policy
 
 - AI Service Cards documentan casos de uso previstos, consideraciones de equidad, diseño responsable, mejores prácticas y rendimiento.
@@ -104,6 +112,15 @@
 - GuardDuty ayuda a identificar y responder ataques.
 - Cifrado en reposo protege datos almacenados; cifrado en tránsito protege datos entre sistemas.
 
+### Servicios de seguridad frecuentes en preguntas de IA
+
+- **IAM**: controla quién puede acceder y qué acciones puede realizar; aplicar mínimo privilegio sobre datos y servicios.
+- **AWS KMS**: gestiona claves de cifrado para proteger datos sensibles en reposo y apoyar cifrado en tránsito cuando el servicio lo integra.
+- **Amazon Macie**: descubre, clasifica y protege datos sensibles almacenados en Amazon S3; útil para detectar exposición o riesgos sobre datos confidenciales.
+- **AWS PrivateLink**: conectividad privada entre VPC/servicios; no clasifica datos.
+- **AWS Shield**: protección DDoS; no inspecciona contenido sensible.
+- **CloudTrail** registra actividad API; **AWS Config** monitorea configuración; ninguno reemplaza KMS para gestión de claves.
+
 ## Servicios AWS para gobernanza
 
 - AWS Config: audita y monitorea configuraciones.
@@ -112,6 +129,13 @@
 - AWS CloudTrail: registra actividad API.
 - Amazon Inspector: análisis automatizado de vulnerabilidades.
 - AWS Trusted Advisor: recomendaciones de seguridad, rendimiento y costes.
+
+### Retos específicos de IA generativa responsable
+
+- **Toxicidad**: contenido ofensivo, dañino o inapropiado.
+- **Propiedad intelectual**: generación de contenido demasiado similar a material protegido.
+- **Alucinaciones**: respuestas plausibles pero falsas o inventadas.
+- Privacidad, seguridad, explicabilidad y transparencia también importan, pero pueden aparecer como categorías amplias de IA responsable, no necesariamente como retos distintivos de generación de contenido.
 
 ## Modelo de responsabilidad compartida y uso aceptable
 
@@ -124,5 +148,6 @@
 - Clarify = sesgo + explicabilidad.
 - Model Cards = documentación, transparencia y auditoría.
 - Guardrails = control de GenAI.
+- Macie = descubrir/clasificar datos sensibles en S3; KMS = claves de cifrado.
 - IAM/mínimo privilegio = acceso seguro.
 - CloudTrail = actividad API; Config = configuración; Audit Manager = evidencia; Artifact = reportes/acuerdos.

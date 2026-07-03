@@ -42,6 +42,7 @@
 - Genera informes de calidad: faltantes, duplicados, anomalías.
 - Ofrece más de 300 transformaciones predefinidas en PySpark.
 - Permite visualizaciones, estimación de poder predictivo y automatización de flujos de preparación.
+- Para privacidad y cumplimiento, asociarlo con preparación, transformación y anonimización de datos antes del entrenamiento.
 
 ### SageMaker Feature Store
 
@@ -69,6 +70,14 @@
 - Captura estadísticas de entrada/salida, anomalías y deriva.
 - Envía alertas con CloudWatch.
 - Detecta data drift, problemas de calidad de datos, desempeño del modelo, sesgo y deriva de explicabilidad.
+
+### Clarify: sesgo y explicabilidad
+
+- SageMaker Clarify ayuda a detectar sesgos y explicar predicciones.
+- En interpretabilidad, distinguir explicación local y global:
+  - **Shapley/SHAP**: explica cuánto aporta cada característica a una predicción individual.
+  - **PDP**: muestra efecto promedio de una característica sobre el conjunto de datos.
+- Si el escenario pide entender una decisión concreta, pensar en explicación local; si pide tendencia general del modelo, pensar en explicación global.
 
 ### Model Registry
 
@@ -106,12 +115,39 @@
 - Clarify: detección de sesgos y explicabilidad.
 - Ground Truth: creación de datasets etiquetados, RLHF y etiquetado humano vía Mechanical Turk o proveedores externos.
 
+#### JumpStart vs entrenar desde cero
+
+- JumpStart encaja cuando se necesitan modelos o soluciones preconfiguradas listas para experimentar, personalizar o desplegar desde SageMaker.
+- Si el escenario pide acceder rápido a modelos preentrenados para un flujo de negocio, JumpStart suele pesar más que construir un modelo desde cero.
+
+#### Ground Truth vs Augmented AI
+
+- **Ground Truth**: etiquetado de datos, construcción de datasets y retroalimentación humana para entrenamiento/RLHF.
+- **Amazon Augmented AI (A2I)**: revisión humana de predicciones o resultados cuando se necesita auditoría o control humano.
+- Para crear etiquetas de un dataset de imágenes, pensar en Ground Truth; para revisar salidas de un modelo ya operativo, pensar en A2I.
+
+## Patrones de entrenamiento y datos
+
+### Transfer learning
+
+- Transfer learning reutiliza un modelo preentrenado y ajusta sus pesos para una tarea nueva.
+- Es útil cuando hay pocos datos etiquetados, especialmente en visión por computadora.
+- No se corrige falta de etiquetas aumentando batch size; data augmentation ayuda durante entrenamiento, no como paso de inferencia.
+
+### Datos históricos y entrenamiento
+
+- Para entrenar modelos con grandes volúmenes de datos históricos, Amazon S3 suele funcionar como almacenamiento escalable y duradero.
+- SageMaker se usa para construir, entrenar, desplegar y monitorear el modelo.
+- No confundir servicios NLP como Comprehend o Translate con entrenamiento general de modelos sobre historial de clientes.
+
 ## Claves de examen
 
 - SageMaker = plataforma end-to-end de ML.
 - Data Wrangler = preparación visual de datos.
+- Data Wrangler = preparación, transformación y posible anonimización antes de entrenamiento.
 - Feature Store = repositorio centralizado de features.
 - AMT = ajuste automático de hiperparámetros.
 - Model Monitor = drift, calidad, rendimiento y alertas.
-- Clarify = sesgo y explicabilidad.
-- Ground Truth = etiquetado humano/datasets.
+- Clarify = sesgo y explicabilidad; SHAP/Shapley local, PDP global.
+- Ground Truth = etiquetado humano/datasets/RLHF; A2I = revisión humana de predicciones.
+- JumpStart = modelos y soluciones preconfiguradas.

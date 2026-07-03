@@ -20,7 +20,15 @@
 - Recomendaciones de productos basadas en historial de compras.
 - Personalización de contenido y sugerencias de consumo para usuarios.
 
+## Recomendaciones y similitud vectorial
+
+- Amazon Personalize se enfoca en recomendaciones personalizadas usando comportamiento, historial e interacciones de usuarios.
+- Si además el escenario pide búsqueda eficiente por similitud entre contenidos, puede aparecer Amazon OpenSearch Service como base para búsqueda vectorial.
+- Personalize responde “qué recomendar a este usuario”; OpenSearch vectorial responde “qué elementos son similares a este contenido/embedding”.
+- Amazon Neptune modela grafos y relaciones; no es la primera opción cuando la pista explícita es búsqueda vectorial para contenido similar.
+
 ## Claves de examen
 
 - Personalize = recomendaciones personalizadas.
 - Si escenario habla de historial, preferencias, productos o contenido recomendado: Amazon Personalize.
+- Si escenario combina recomendación personalizada + similitud vectorial, pensar en Personalize + OpenSearch Service.

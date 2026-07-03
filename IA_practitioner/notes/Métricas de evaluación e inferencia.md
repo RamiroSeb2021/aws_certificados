@@ -308,6 +308,7 @@ SageMaker Deployment & Inference se refiere a desplegar modelos de ML y realizar
 
 - No requiere administrar servidores.
 - No requiere preocuparse por escalabilidad manual.
+- Encaja cuando se necesita respuesta rápida con escalado automático ante picos, pagando por uso y reduciendo capacidad ociosa.
 
 ### Inferencia por lotes
 
@@ -319,6 +320,8 @@ SageMaker Deployment & Inference se refiere a desplegar modelos de ML y realizar
 
 - Para procesamiento offline de grandes lotes de datos, elegir inferencia por lotes.
 - Serverless reduce gestión de servidores y escalado manual, pero no reemplaza la pista de “grandes volúmenes offline”.
+- Si el escenario habla de límite estricto de latencia por solicitud y tráfico variable, serverless puede pesar más que endpoint en tiempo real tradicional.
+- Inferencia asincrónica desacopla respuesta para solicitudes largas, pero no es la mejor pista cuando se remarcan lotes grandes offline.
 
 ### Inferencia asincrónica
 

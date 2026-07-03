@@ -52,11 +52,26 @@
 - Longitud máxima: tamaño máximo de respuesta.
 - Secuencias de detención: cuándo detener generación.
 
+### Parámetros de inferencia: cómo no confundirlos
+
+- **Top K** limita el número de tokens candidatos que el modelo puede considerar para la próxima palabra.
+- **Top P** limita por probabilidad acumulada: el modelo considera el conjunto mínimo de tokens cuya probabilidad suma el umbral definido.
+- **Temperatura** controla aleatoriedad: baja = respuestas más deterministas; alta = más variación.
+- **Secuencias de detención** no hacen la respuesta más creativa ni más precisa; solo indican dónde cortar la generación.
+- Para respuestas más predecibles, pensar en temperatura baja y Top P bajo; Top K bajo también ayuda, pero no reemplaza el control de aleatoriedad.
+
 ## Latencia
 
 - Latencia = tiempo de procesamiento y respuesta.
 - Factores que afectan: tamaño de modelo, tipo de modelo, tokens de entrada y tokens de salida.
 - Fuente indica que Top P, Top K y temperatura no afectan latencia.
+
+## Coste y tokens en prompts
+
+- En modelos generativos, el coste suele estar muy ligado a tokens procesados: entrada + salida.
+- Few-shot prompting aumenta calidad contextual, pero cada ejemplo adicional consume tokens.
+- Para reducir coste mensual, primero revisar longitud del prompt, cantidad de ejemplos, contexto repetido y longitud esperada de respuesta.
+- Provisioned Throughput conviene cuando se necesita capacidad estable o garantizada; no es la primera palanca para ahorrar en uso variable o bajo.
 
 ## Buenas prácticas
 
@@ -76,10 +91,20 @@
 - Jailbreaking: manipulación para ignorar medidas de seguridad.
 - Poisoning: introducción de datos maliciosos o sesgados en entrenamiento.
 
+### Riesgos de prompts y datos manipulados
+
+- **Poisoning**: datos de entrenamiento, interacción o contexto fueron manipulados para alterar respuestas del modelo.
+- **Jailbreaking**: usuario intenta que el modelo ignore restricciones o políticas.
+- **Hijacking**: atacante secuestra la lógica de interacción para redirigir comportamiento hacia una intención maliciosa.
+- **Exposure**: fuga o revelación de información sensible.
+- Si el escenario habla de datos manipulados que influyen en respuestas incorrectas o peligrosas, la pista fuerte es poisoning; si habla de saltarse reglas, la pista fuerte es jailbreaking.
+
 ## Claves de examen
 
 - Prompt Engineering no entrena modelo; diseña instrucciones.
 - Zero-shot = sin ejemplos.
 - Few-shot = con ejemplos.
 - CoT = paso a paso.
+- Top K = cantidad de candidatos; Top P = probabilidad acumulada; temperatura = aleatoriedad.
+- Menos tokens = menor coste potencial en GenAI.
 - Riesgos frecuentes: alucinación, inyección de prompt, fuga de prompts y jailbreaking.

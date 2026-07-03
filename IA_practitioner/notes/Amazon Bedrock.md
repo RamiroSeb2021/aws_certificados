@@ -35,6 +35,13 @@
 
 ## Personalización de modelos
 
+### Modelo fundacional y preentrenamiento
+
+- Un foundation model se entrena inicialmente con grandes volúmenes de datos, normalmente no supervisados o auto-supervisados.
+- Ese entrenamiento inicial aprende patrones generales antes de adaptar el modelo a tareas concretas.
+- Entrenar o preentrenar un modelo desde cero ofrece máxima flexibilidad, pero exige más datos, cómputo, tiempo y coste.
+- Para la mayoría de escenarios de examen, si ya existe un FM útil, adaptar el modelo suele ser más razonable que crear uno desde cero.
+
 ### Fine-tuning
 
 - Ajusta un modelo preentrenado para una tarea específica usando datos adicionales.
@@ -42,6 +49,7 @@
 - Usa menos datos y recursos que reentrenar un FM completo.
 - Se integra con S3 para almacenar datos.
 - Formato fuente: pares `prompt` / `completion`.
+- En Bedrock, pensar en personalización privada del modelo: no se modifica el FM base público; se crea/adapta una copia privada para el caso de uso.
 
 ### Continuous pre-training
 
@@ -50,6 +58,16 @@
 - Adapta el modelo a dominios como finanzas, medicina o derecho.
 - Usa aprendizaje por transferencia.
 - Formato fuente: entradas `input` de texto.
+
+### Comparación de personalización
+
+| Enfoque | Cuándo encaja | Qué cambia |
+|---|---|---|
+| In-context learning | Dar ejemplos o contexto en el prompt | No cambia pesos del modelo |
+| RAG | Responder con información recuperada externa | No cambia pesos; mejora contexto |
+| Fine-tuning | Adaptar a tarea específica con ejemplos | Ajusta una copia/modelo personalizado |
+| Continuous pre-training | Adaptar conocimiento general a dominio con texto no etiquetado | Sigue entrenando sobre dominio |
+| Pre-training desde cero | Necesidad extrema de control/flexibilidad | Crea modelo nuevo; mayor coste |
 
 ## RAG y bases de conocimiento
 
@@ -84,6 +102,12 @@
 - Si además pide bloquear temas, filtrar contenido dañino, proteger PII o aplicar controles de seguridad/responsabilidad, pensar en **Amazon Bedrock Guardrails**.
 - No confundir con Amazon Lex: Lex ayuda a construir interfaces conversacionales, no a evaluar FM ni aplicar guardrails de Bedrock.
 
+## Métricas de negocio en GenAI
+
+- Las métricas técnicas evalúan comportamiento del modelo: precisión, robustez, toxicidad, calidad de respuesta o latencia.
+- Las métricas de negocio evalúan valor para la organización: conversión, retención, reducción de tiempo operativo, satisfacción del cliente o ingresos.
+- En ecommerce, si la pregunta pide valor generado por una aplicación GenAI, la tasa de conversión suele medir mejor impacto de negocio que tokens generados o tamaño del dataset.
+
 ## Bedrock vs SageMaker JumpStart
 
 - Bedrock encaja cuando se quiere consumir foundation models administrados mediante API, sin entrenar, alojar ni gestionar el modelo.
@@ -99,6 +123,12 @@
 - Personalización: tokens durante entrenamiento y almacenamiento mensual.
 - Evaluación: automática paga inferencia; humana agrega coste por tarea humana.
 
+### Error de examen / Punto de confusión
+
+- Si la pista es reducir coste en prompts diarios, reducir tokens de entrada/salida suele ser la opción directa.
+- Agregar ejemplos few-shot mejora contexto pero sube tokens.
+- Provisioned Throughput no es sinónimo de ahorro; encaja cuando se necesita capacidad garantizada o cargas sostenidas.
+
 ## Claves de examen
 
 - Bedrock = GenAI administrada con FM.
@@ -106,4 +136,5 @@
 - Fine-tuning = adaptar a tarea específica.
 - Continuous pre-training = conocimiento de dominio con datos sin etiquetar.
 - Guardrails = seguridad, temas bloqueados, PII, jailbreak e inyección de prompts.
+- Fine-tuning = tarea específica; continuous pre-training = dominio; RAG = contexto externo; in-context learning = ejemplos/contexto en prompt.
 - Para profundizar ajustes de modelos GenAI: ver `Ajuste de modelos GenAI.md`.
