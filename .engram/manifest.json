@@ -8,6 +8,14 @@
       "sessions": 5,
       "memories": 14,
       "prompts": 15
+    },
+    {
+      "id": "cf3f163a",
+      "created_by": "sebastian-ramirez",
+      "created_at": "2026-07-06T21:04:08Z",
+      "sessions": 3,
+      "memories": 20,
+      "prompts": 7
     }
   ]
 }
