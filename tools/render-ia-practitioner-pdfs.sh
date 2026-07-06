@@ -15,6 +15,8 @@ docker build -t "$image" "$dockerfile_dir"
 docker run --rm \
   --user "$(id -u):$(id -g)" \
   --env HOME=/tmp \
+  --env NOTES_DIR \
+  --env OUTPUT_DIR \
   --volume "$repo_root:/work" \
   --workdir /work \
   "$image"
