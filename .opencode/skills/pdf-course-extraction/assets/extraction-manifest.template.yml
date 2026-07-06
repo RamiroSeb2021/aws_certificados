@@ -1,0 +1,42 @@
+# Copy this file into an explicit working path before extraction.
+source_pdf:
+  path: ""
+  title: ""
+  course: ""
+  copyright_note: ""
+
+output_root: ""
+artifact_root: ""
+
+extraction_profile:
+  method: "pymupdf4llm-page-chunks"
+  native_text_layer: "unknown" # good | partial | missing | garbled | unknown
+  write_images: true
+  extract_tables: true
+  ocr:
+    enabled: false
+    engine: "local-only"
+    pages: []
+    caveat: ""
+  cloud_services:
+    enabled: false
+    approved_by_user: false
+    service: ""
+    scope: ""
+
+sections:
+  - title: ""
+    pages: []
+    output: ""
+    tags: []
+    manual_review: false
+    notes: ""
+
+qa_gates:
+  page_coverage_required: true
+  preserve_page_order: true
+  trace_pages_to_notes: true
+  no_invented_content: true
+  diagram_heavy_pages_require_review: true
+  table_pages_require_review: true
+  caveats_required_for_ocr_or_garbled_text: true

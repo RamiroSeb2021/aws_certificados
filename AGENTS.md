@@ -11,6 +11,7 @@
 - `IA_practitioner/` contiene PDF fuente y apuntes Markdown separados por tema de AWS AI Practitioner.
 - `cloud_practitioner/` contiene ODT fuente y un Markdown consolidado del curso Cloud Practitioner.
 - `.opencode/skills/aws-course-notes/` contiene skill local para convertir material AWS a apuntes Markdown.
+- `.opencode/skills/pdf-course-extraction/` contiene skill local para extracción controlada de PDFs con manifiesto y QA.
 - `.opencode/skills/udemy-wrong-questions/` contiene skill local para convertir preguntas incorrectas de Udemy en reparaciones de estudio para AI Practitioner.
 - No hay comandos de build/test verificados para producto ejecutable.
 
@@ -50,6 +51,7 @@ AGENTS.md             Instrucciones operativas para agentes
 
 | Skill | Cuándo usar | Ruta |
 |---|---|---|
+| `pdf-course-extraction` | Entender, procesar o extraer PDFs de curso con trazabilidad, manifiesto y QA local | `.opencode/skills/pdf-course-extraction/SKILL.md` |
 | `aws-course-notes` | Convertir PDFs/ODT/transcripts AWS a apuntes Markdown | `.opencode/skills/aws-course-notes/SKILL.md` |
 | `anki-note-questions` | Crear preguntas Anki/flashcards desde apuntes respetando estructura de repaso activo | `.opencode/skills/anki-note-questions/SKILL.md` |
 | `udemy-wrong-questions` | Analizar preguntas incorrectas de Udemy, actualizar apuntes de AI Practitioner y devolver plan de estudio | `.opencode/skills/udemy-wrong-questions/SKILL.md` |
@@ -60,6 +62,7 @@ AGENTS.md             Instrucciones operativas para agentes
 ## Auto-invoke obligatorio
 
 - Para apuntes AWS desde curso local: cargar `aws-course-notes` primero.
+- Para entender, procesar o extraer PDFs de curso: cargar `pdf-course-extraction` primero; si el resultado será apunte AWS, cargar también `aws-course-notes`.
 - Para preguntas incorrectas de Udemy o pantallazos de examen AI Practitioner: cargar `udemy-wrong-questions` y `aws-course-notes` primero.
 - Para preguntas Anki desde apuntes: cargar `anki-note-questions` primero.
 - Para README: cargar `create-readme` y aplicar diseño cognitivo.
