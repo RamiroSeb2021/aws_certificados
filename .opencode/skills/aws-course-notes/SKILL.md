@@ -1,6 +1,6 @@
 ---
 name: aws-course-notes
-description: "Trigger: AWS course notes, ODT/PDF course inputs, Cloud Practitioner notes. Creates preserved-content Markdown notes in the project style."
+description: "Trigger: AWS course notes, ODT/PDF/transcript inputs, study-note style. Creates source-preserving Markdown AWS notes."
 license: Apache-2.0
 metadata:
   author: gentleman-programming
@@ -25,15 +25,18 @@ Load this skill when turning AWS course material from ODT, PDF, transcript, or r
 |---|---|
 | Source is ODT | Prefer `pandoc <file>.odt -t gfm`; fallback to local unzip/XML extraction. |
 | Source is PDF | Prefer local text extraction; preserve page/section order. |
+| Missing or poorly extracted context | Complement gaps only from provided source/context; mark unresolved uncertainty instead of inventing AWS facts. |
+| Study-note style needed | Apply the general AWS study-note pattern from `references/note-style.md`; `IA_practitioner/notes/` is an observed style source, not a scope boundary. |
 | Term seems wrong but source is ambiguous | Preserve it and add a caveat only if needed. |
 | Style conflict | Follow `references/note-style.md`. |
 
 ## Execution Steps
 
 1. Extract text locally and save an intermediate artifact outside the repo or in an explicit working path.
-2. Infer source structure, then write chunked Markdown with clear H1/H2/H3 headings, short lists, and tables only when already implied.
+2. Apply the general local shape: source metadata, `Criterio de edición`, concise H2/H3 concept chunks, source-derived examples/comparisons, caveats, and final recall or exam keys when applicable.
 3. Normalize AWS service casing and obvious typos without changing technical meaning.
-4. Verify no AWS concepts were added beyond the source.
+4. Add examples, comparisons, and exam-confusion callouts only when directly derived from the source.
+5. Verify no AWS facts, services, prices, limits, exam tips, or definitions were added beyond the source.
 
 ## Output Contract
 
