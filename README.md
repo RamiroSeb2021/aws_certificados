@@ -6,6 +6,7 @@ Repositorio personal de apuntes de estudio para certificaciones AWS. Contiene ma
 
 - Apuntes de **AWS Certified Cloud Practitioner (CLF-C02)** en `cloud_practitioner/`.
 - Apuntes de **AWS Certified AI Practitioner (AIF-C01)** en `IA_practitioner/notes/`.
+- Apuntes de **AWS Certified Solutions Architect – Associate (SAA)** en `Solutions Architect Associate/`, incluyendo 37 lecturas individuales de las secciones 6 a 10.
 - No hay aplicación ejecutable ni scripts de build verificados; este repo es principalmente documentación.
 
 ## Estructura
@@ -24,6 +25,16 @@ Repositorio personal de apuntes de estudio para certificaciones AWS. Contiene ma
 ├── cloud_practitioner/
 │   ├── Notas curso Cloud Practitioner CFL-CO2 2026.odt
 │   └── notas_curso_cloud_practitioner_cfl-c02_2026.md
+├── Solutions Architect Associate/
+│   ├── AWS-Certified-Solutions-Architect-v5.pdf
+│   ├── indice-lecturas.md
+│   ├── notes/                    # apuntes consolidados
+│   └── notes-lecturas/           # un Markdown por lectura revisada
+│       ├── 06-ec2-associate/
+│       ├── 07-almacenamiento-ec2/
+│       ├── 08-elb-asg/
+│       ├── 09-rds-aurora-elasticache/
+│       └── 10-route-53/
 ├── AGENTS.md
 └── README.md
 ```
@@ -60,6 +71,20 @@ Los PDFs se generan en `IA_practitioner/rendered-pdfs/` y no se versionan.
 - Leer `cloud_practitioner/notas_curso_cloud_practitioner_cfl-c02_2026.md` de arriba hacia abajo.
 - El archivo preserva el orden y contenido del curso original convertido desde ODT.
 
+## Ruta sugerida: Solutions Architect Associate
+
+1. Abrir `Solutions Architect Associate/indice-lecturas.md` para consultar la cobertura general del curso.
+2. Usar `Solutions Architect Associate/notes-lecturas/README.md` como índice de las 37 lecturas revisadas.
+3. Seguir las carpetas en orden:
+   - `06-ec2-associate/`
+   - `07-almacenamiento-ec2/`
+   - `08-elb-asg/`
+   - `09-rds-aurora-elasticache/`
+   - `10-route-53/`
+4. Consultar `Solutions Architect Associate/notes/` cuando se necesite una visión consolidada por sección.
+
+Cada apunte individual identifica las páginas del PDF utilizadas como fuente. Las explicaciones complementarias externas quedan señaladas dentro del archivo correspondiente.
+
 ## Criterio de edición de apuntes
 
 - Se preserva significado del material fuente.
@@ -71,5 +96,6 @@ Los PDFs se generan en `IA_practitioner/rendered-pdfs/` y no se versionan.
 
 - `IA_practitioner/AWS-AIF-C01-v4.pdf`
 - `cloud_practitioner/Notas curso Cloud Practitioner CFL-CO2 2026.odt`
+- `Solutions Architect Associate/AWS-Certified-Solutions-Architect-v5.pdf`
 
 > Nota: el PDF del curso indica restricciones de uso personal. No compartas material protegido fuera de tu uso autorizado.
