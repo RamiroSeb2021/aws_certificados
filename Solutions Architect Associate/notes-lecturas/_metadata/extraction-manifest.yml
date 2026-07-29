@@ -1,0 +1,65 @@
+source_pdf:
+  path: "Solutions Architect Associate/AWS-Certified-Solutions-Architect-v5.pdf"
+  title: "AWS Certified Solutions Architect v5"
+  course: "AWS Certified Solutions Architect Associate"
+  copyright_note: "Material de curso para uso personal; no redistribuir el PDF ni la extracción completa."
+
+output_root: "Solutions Architect Associate/notes-lecturas"
+artifact_root: "/tmp/saa-render"
+
+extraction_profile:
+  method: "pdftotext-layout-plus-poppler-render"
+  native_text_layer: "good"
+  write_images: true
+  extract_tables: false
+  ocr:
+    enabled: false
+    engine: "local-only"
+    pages: []
+    caveat: ""
+  cloud_services:
+    enabled: false
+    approved_by_user: false
+    service: ""
+    scope: ""
+
+sections:
+  - title: "EC2 - Nivel Solutions Architect Associate"
+    pages: [79, 84, 85, 88, 89, 90, 92]
+    output: "Solutions Architect Associate/notes-lecturas/06-ec2-associate"
+    tags: [ec2, networking]
+    manual_review: true
+    notes: "Diagramas de placement groups, ENI e hibernación revisados visualmente."
+  - title: "Almacenamiento de instancias EC2"
+    pages: [94, 117]
+    output: "Solutions Architect Associate/notes-lecturas/07-almacenamiento-ec2"
+    tags: [ebs, efs, storage]
+    manual_review: true
+    notes: "Comparaciones EBS/EFS y diagramas resumidos textualmente."
+  - title: "Alta disponibilidad y escalabilidad"
+    pages: [119, 159]
+    output: "Solutions Architect Associate/notes-lecturas/08-elb-asg"
+    tags: [elb, asg]
+    manual_review: true
+    notes: "Diagramas ALB/NLB/GWLB, TLS y cross-zone revisados visualmente."
+  - title: "RDS, Aurora y ElastiCache"
+    pages: [161, 192]
+    output: "Solutions Architect Associate/notes-lecturas/09-rds-aurora-elasticache"
+    tags: [rds, aurora, elasticache]
+    manual_review: true
+    notes: "Diagramas de réplicas, Multi-AZ, endpoints, proxy y caché revisados."
+  - title: "Route 53"
+    pages: [194, 200]
+    output: "Solutions Architect Associate/notes-lecturas/10-route-53"
+    tags: [dns, route53]
+    manual_review: true
+    notes: "Flujo jerárquico DNS y registros revisados."
+
+qa_gates:
+  page_coverage_required: true
+  preserve_page_order: true
+  trace_pages_to_notes: true
+  no_invented_content: true
+  diagram_heavy_pages_require_review: true
+  table_pages_require_review: true
+  caveats_required_for_ocr_or_garbled_text: true

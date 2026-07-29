@@ -1,9 +1,17 @@
 # Índice de lecturas y apuntes
 
-Este índice relaciona las secciones y lecturas de [`course-content.md`](course-content.md) con las temáticas disponibles en [`notes/`](notes/). Los números de línea apuntan al bloque más específico que desarrolla cada tema.
+Este índice relaciona las secciones y lecturas de [`course-content.md`](course-content.md) con las temáticas disponibles en [`notes/`](notes/) y con los apuntes individuales de [`notes-lecturas/`](notes-lecturas/README.md). Los números de línea apuntan al bloque más específico que desarrolla cada tema.
 
-> **Cobertura actual:** hay apuntes para las secciones 4 a 8. Las secciones 1 a 3 y 9 a 34 todavía no tienen una nota equivalente en `notes/`.
+> **Cobertura actual:** hay apuntes consolidados para las secciones 4 a 8 y apuntes por lectura revisada para las secciones 6 a 10. Las secciones 1 a 3 y 11 a 34 todavía no tienen una nota equivalente.
 > Las demostraciones (`[DEMO]`) se excluyen para mantener el índice enfocado en las lecturas teóricas, artículos y cuestionarios.
+
+## Apuntes por lectura revisada
+
+Las 37 lecturas seleccionadas de las secciones 6 a 10 tienen un archivo Markdown independiente:
+
+- [`notes-lecturas/README.md`](notes-lecturas/README.md) — índice completo por sección y número de lectura.
+- Cada archivo identifica las páginas del PDF usadas como fuente.
+- La lectura adicional de puertos combina la diapositiva de puertos clásicos con referencias oficiales de AWS claramente identificadas.
 
 ## Ruta rápida por sección
 
@@ -17,7 +25,9 @@ Este índice relaciona las secciones y lecturas de [`course-content.md`](course-
 | 6. EC2 - Nivel Solutions Architect Associate | [`notes/04-ec2-associate.md`](notes/04-ec2-associate.md) | Disponible |
 | 7. Almacenamiento de instancias EC2 | [`notes/05-ec2-instance-storage.md`](notes/05-ec2-instance-storage.md) | Disponible |
 | 8. Alta disponibilidad y escalabilidad: ELB y ASG | [`notes/06-alta-disponibilidad-elb-asg.md`](notes/06-alta-disponibilidad-elb-asg.md) | Disponible |
-| 9–34 | — | Todavía sin apuntes en `notes/` |
+| 9. RDS + Aurora + ElastiCache | [`notes-lecturas/09-rds-aurora-elasticache/`](notes-lecturas/09-rds-aurora-elasticache/) | Disponible por lectura seleccionada |
+| 10. Route 53 | [`notes-lecturas/10-route-53/`](notes-lecturas/10-route-53/) | Disponible por lectura seleccionada |
+| 11–34 | — | Todavía sin apuntes |
 
 ## 4. IAM y CLI de AWS
 
@@ -111,10 +121,10 @@ Este índice relaciona las secciones y lecturas de [`course-content.md`](course-
 
 ## Secciones todavía sin correspondencia
 
-Las siguientes secciones aparecen en `course-content.md`, pero aún no tienen archivos equivalentes en `notes/`:
+Las siguientes secciones aparecen en `course-content.md`, pero aún no tienen apuntes equivalentes:
 
 - 1–3: introducción, materiales del curso y primeros pasos con AWS.
-- 9–16: RDS/Aurora/ElastiCache, Route 53, arquitecturas clásicas, S3, SDK/IAM, CloudFront y Global Accelerator.
+- 11–16: arquitecturas clásicas, S3, SDK/IAM, CloudFront y Global Accelerator.
 - 17–24: almacenamiento adicional, mensajería y streaming, contenedores, serverless, bases de datos, analíticas y Machine Learning.
 - 25–31: monitorización, IAM avanzado, seguridad y cifrado, VPC, recuperación, migraciones, arquitecturas adicionales y otros servicios.
 - 32–34: whitepapers, preparación para el examen y cierre del curso.
