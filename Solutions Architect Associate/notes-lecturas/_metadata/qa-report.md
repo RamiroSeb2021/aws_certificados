@@ -1,18 +1,19 @@
-# Informe QA de extracción PDF
+# Informe de aseguramiento de calidad (QA) de extracción del documento PDF
 
 ## Fuente
 
-- PDF: `Solutions Architect Associate/AWS-Certified-Solutions-Architect-v5.pdf`
+- PDF — Portable Document Format (formato de documento portátil): `Solutions Architect Associate/AWS-Certified-Solutions-Architect-v5.pdf`
 - Manifiesto: `Solutions Architect Associate/notes-lecturas/_metadata/extraction-manifest.yml`
 - Artefactos temporales: `/tmp/saa-render`
 - Método: `pdftotext -layout` + renderizado Poppler y revisión visual
-- Fecha: 2026-07-28
+- Fecha de extracción inicial: 2026-07-28
+- Fecha de revisión pedagógica y oficial: 2026-08-01
 
 ## Cobertura
 
-- PDF total: 880 páginas.
+- Documento fuente total: 880 páginas.
 - Alcance revisado: páginas 57, 79–92, 94–117, 119–192 y 194–200.
-- OCR requerido: ninguno.
+- OCR — Optical Character Recognition (reconocimiento óptico de caracteres) requerido: ninguno.
 - Páginas omitidas: demos y lecturas no solicitadas.
 
 ## Calidad
@@ -25,12 +26,16 @@
 
 - [x] Cada nota identifica páginas fuente.
 - [x] Los nombres AWS se normalizaron sin cambiar significado.
-- [x] Las cifras del PDF se conservaron como datos de la fuente.
-- [x] No se publicó la extracción completa del PDF.
-- [x] El complemento externo se limita al archivo de puertos y queda identificado.
+- [x] Las cifras del documento fuente se conservaron como datos del curso.
+- [x] No se publicó la extracción completa del documento fuente.
+- [x] Las 37 notas incluyen al menos una fuente oficial actual de AWS.
+- [x] Cada nota desarrolla los conceptos fundamentales antes del detalle técnico.
+- [x] Cada sigla conceptual se desarrolla o se identifica explícitamente como código o nombre reservado.
+- [x] Cada concepto nuevo del bloque introductorio incluye un ejemplo inmediato.
+- [x] Los complementos oficiales y las diferencias respecto al curso quedan identificados.
 
 ## Caveats
 
-- El PDF contiene límites y valores que pueden quedar desactualizados.
-- La lectura de puertos no está desarrollada como diapositiva en la sección 9; se complementó con la diapositiva 57 y documentación oficial AWS.
-- Los archivos existentes de `notes/` se conservaron sin modificación.
+- El documento fuente contiene límites y valores que pueden quedar desactualizados; se conservaron como material del curso y se añadieron advertencias donde la documentación actual difiere.
+- La lectura de puertos no está desarrollada como diapositiva en la sección 9; se complementó con la diapositiva 57 y documentación oficial de AWS.
+- Las fuentes oficiales pueden cambiar después de esta revisión; para una decisión operativa deben consultarse nuevamente los enlaces de cada lectura.

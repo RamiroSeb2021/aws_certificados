@@ -4,13 +4,45 @@
 > Páginas fuente: 180–183.
 > Índice relacionado: `Solutions Architect Associate/indice-lecturas.md` — sección 9, lectura 8: Copia de seguridad y monitorización.
 > Método: extracción local con `pdftotext -layout` y revisión visual de las diapositivas relevantes.
+> Verificación oficial: [Introduction to RDS backups](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html).
 > Se preserva el significado de la fuente; cualquier complemento externo queda identificado.
 
 ## Criterio de edición
 
 - Una lectura del curso por archivo.
-- Redacción y estructura optimizadas para repaso activo.
-- Límites, cifras y caveats se mantienen como aparecen en el PDF y pueden cambiar con el tiempo.
+- Redacción y estructura optimizadas para repaso activo desde fundamentos.
+- Cada concepto nuevo incluye una explicación sencilla y un ejemplo inmediato.
+- Las siglas se desarrollan y explican en su primera aparición conceptual.
+- Los límites y cifras del curso se preservan como contenido de la fuente y pueden cambiar; los complementos actuales se identifican por separado.
+
+## Antes de empezar: conceptos y siglas
+
+- **AWS — Amazon Web Services:** proveedor de servicios de nube utilizado en estas notas.
+  - **Ejemplo:** AWS opera servicios de computación, almacenamiento, bases de datos y redes.
+- **Backup (copia de seguridad):** copia creada para recuperar datos después de una pérdida o error.
+  - **Ejemplo:** una copia automática permite restaurar la base al estado de una hora anterior.
+- **Snapshot:** copia de la instancia o clúster de base de datos en un punto del tiempo.
+  - **Ejemplo:** un snapshot manual se conserva hasta que el usuario decida eliminarlo.
+- **PITR — Point-in-Time Recovery (recuperación a un punto en el tiempo):** restauración al estado aproximado de un instante dentro del periodo disponible.
+  - **Ejemplo:** recuperar la base al momento anterior a un `DELETE` accidental.
+- **Log de transacciones:** registro ordenado de cambios realizados en la base.
+  - **Ejemplo:** RDS utiliza registros para avanzar desde una copia hasta el punto solicitado.
+- **RDS — Amazon Relational Database Service:** servicio administrado de bases de datos relacionales.
+  - **Ejemplo:** RDS crea backups automáticos durante la ventana configurada.
+- **Aurora:** motor relacional administrado de AWS con almacenamiento de clúster distribuido.
+  - **Ejemplo:** un snapshot de Aurora restaura un clúster nuevo.
+- **S3 — Amazon Simple Storage Service:** servicio de almacenamiento de objetos.
+  - **Ejemplo:** algunos flujos compatibles permiten restaurar datos de MySQL desde archivos en S3.
+- **Copy-on-write (copia al escribir):** técnica que comparte inicialmente bloques y crea copias separadas cuando se modifican.
+  - **Ejemplo:** un clon de Aurora se crea rápidamente y empieza a consumir almacenamiento adicional al cambiar datos.
+- **Staging:** entorno previo a producción usado para probar cambios.
+  - **Ejemplo:** un clon de producción puede servir para verificar una migración sin modificar la base original.
+
+## Idea central
+
+Un backup protege la capacidad de recuperar; restaurar NO modifica normalmente la base original, sino que crea una base o clúster nuevo al que después se redirige la aplicación.
+
+**Ejemplo integrador:** un operador elimina datos a las 10:15. Restaura RDS a las 10:14, valida la nueva instancia y recupera la información necesaria.
 
 ## Copias de seguridad de RDS
 

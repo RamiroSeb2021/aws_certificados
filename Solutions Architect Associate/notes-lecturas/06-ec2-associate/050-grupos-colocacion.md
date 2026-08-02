@@ -4,13 +4,43 @@
 > Páginas fuente: 85–88.
 > Índice relacionado: `Solutions Architect Associate/indice-lecturas.md` — sección 6, lectura 3: Grupos de colocación de EC2.
 > Método: extracción local con `pdftotext -layout` y revisión visual de las diapositivas relevantes.
+> Verificación oficial: [Placement strategies for your placement groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-strategies.html).
 > Se preserva el significado de la fuente; cualquier complemento externo queda identificado.
 
 ## Criterio de edición
 
 - Una lectura del curso por archivo.
-- Redacción y estructura optimizadas para repaso activo.
-- Límites, cifras y caveats se mantienen como aparecen en el PDF y pueden cambiar con el tiempo.
+- Redacción y estructura optimizadas para repaso activo desde fundamentos.
+- Cada concepto nuevo incluye una explicación sencilla y un ejemplo inmediato.
+- Las siglas se desarrollan y explican en su primera aparición conceptual.
+- Los límites y cifras del curso se preservan como contenido de la fuente y pueden cambiar; los complementos actuales se identifican por separado.
+
+## Antes de empezar: conceptos y siglas
+
+- **AWS — Amazon Web Services:** proveedor de nube que decide en qué infraestructura física ejecuta cada instancia.
+  - **Ejemplo:** AWS puede iniciar dos instancias del cliente en servidores físicos diferentes.
+- **EC2 — Amazon Elastic Compute Cloud:** servicio que ofrece computadoras virtuales llamadas instancias.
+  - **Ejemplo:** una aplicación distribuida puede ejecutarse en cinco instancias EC2.
+- **AZ — Availability Zone (Zona de Disponibilidad):** ubicación física aislada dentro de una región de AWS, compuesta por uno o más centros de datos.
+  - **Ejemplo:** `us-east-1a` y `us-east-1b` son nombres de AZ dentro de una misma región para una cuenta.
+- **Grupo de colocación:** regla que orienta cómo AWS ubica físicamente un conjunto de instancias EC2.
+  - **Ejemplo:** una estrategia puede mantener instancias cerca para reducir latencia o separarlas para reducir fallos compartidos.
+- **Latencia:** tiempo que tarda la información en viajar de una instancia a otra.
+  - **Ejemplo:** si una respuesta tarda `2 ms`, su latencia es de dos milisegundos.
+- **Gbps — gigabits por segundo:** unidad para medir cuántos datos puede transportar una red por segundo.
+  - **Ejemplo:** una conexión de `10 Gbps` puede transportar más datos por segundo que una de `1 Gbps`.
+- **CPU — Central Processing Unit (unidad central de procesamiento):** componente físico que ejecuta instrucciones.
+  - **Ejemplo:** una instancia virtual utiliza capacidad de CPU proporcionada por el servidor físico subyacente.
+- **HDFS — Hadoop Distributed File System:** sistema de archivos que reparte datos entre varias máquinas.
+  - **Ejemplo:** HDFS puede guardar copias de bloques en particiones diferentes para evitar un único punto de fallo.
+
+## Idea central
+
+Los grupos de colocación controlan una decisión física invisible para la instancia: qué tan juntas o separadas deben quedar varias EC2.
+
+**Ejemplo integrador:** un trabajo que necesita comunicación muy rápida puede usar `cluster`; una aplicación crítica con pocas instancias puede usar `spread`; un sistema distribuido grande puede usar `partition`.
+
+> **Complemento oficial de AWS:** la documentación actual describe `cluster` como una agrupación lógica dentro de una sola AZ y un segmento de red de alto ancho de banda; no garantiza que todas las instancias estén en un único rack. El diagrama del curso debe entenderse como un modelo simplificado.
 
 ## Grupos de ubicación o colocación
 
@@ -23,7 +53,7 @@ Un grupo de colocación es una configuración que indica a AWS **cómo debe ubic
 
 ### Qué son un rack y el hardware físico
 
-> Aclaración conceptual: estas definiciones ayudan a interpretar los diagramas del PDF, que no desarrolla ambos términos por separado.
+> Aclaración conceptual: estas definiciones ayudan a interpretar los diagramas del documento fuente, que no desarrolla ambos términos por separado.
 
 - **Rack:** armario físico de un centro de datos que agrupa varios servidores y componentes de red y energía. Si un rack pierde alimentación o conectividad, los servidores alojados en él pueden verse afectados al mismo tiempo.
 - **Hardware físico:** servidor real que aporta CPU, memoria, almacenamiento y conectividad. Sobre ese servidor AWS puede ejecutar una o más instancias virtuales EC2.
@@ -44,9 +74,9 @@ Imaginá un rack con tres servidores físicos:
 Una aplicación de Big Data utiliza varias instancias EC2 que necesitan intercambiar información rápidamente:
 
 1. Se crea un grupo de colocación con estrategia **Cluster**.
-2. Las instancias se colocan juntas, en el mismo rack y dentro de una única AZ.
+2. El modelo simplificado del documento fuente representa las instancias juntas, en un mismo rack y dentro de una única AZ; la documentación actual garantiza la agrupación lógica en una AZ, no un rack concreto.
 3. Esto proporciona baja latencia y alto rendimiento de red entre las instancias.
-4. Como contrapartida, si falla el rack, todas las instancias pueden fallar simultáneamente.
+4. Como contrapartida, concentrarlas aumenta el riesgo de que un fallo de infraestructura correlacionado afecte a varias a la vez.
 
 | Estrategia | Descripción | Ventajas / uso | Contras / límites |
 | --- | --- | --- | --- |

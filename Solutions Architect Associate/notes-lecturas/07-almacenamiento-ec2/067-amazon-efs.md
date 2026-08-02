@@ -4,13 +4,54 @@
 > Páginas fuente: 112–115.
 > Índice relacionado: `Solutions Architect Associate/indice-lecturas.md` — sección 7, lectura 11: Amazon EFS.
 > Método: extracción local con `pdftotext -layout` y revisión visual de las diapositivas relevantes.
+> Verificación oficial: [What is Amazon Elastic File System?](https://docs.aws.amazon.com/efs/latest/ug/whatisefs.html) y [Amazon EFS performance specifications](https://docs.aws.amazon.com/efs/latest/ug/performance.html).
 > Se preserva el significado de la fuente; cualquier complemento externo queda identificado.
 
 ## Criterio de edición
 
 - Una lectura del curso por archivo.
-- Redacción y estructura optimizadas para repaso activo.
-- Límites, cifras y caveats se mantienen como aparecen en el PDF y pueden cambiar con el tiempo.
+- Redacción y estructura optimizadas para repaso activo desde fundamentos.
+- Cada concepto nuevo incluye una explicación sencilla y un ejemplo inmediato.
+- Las siglas se desarrollan y explican en su primera aparición conceptual.
+- Los límites y cifras del curso se preservan como contenido de la fuente y pueden cambiar; los complementos actuales se identifican por separado.
+
+## Antes de empezar: conceptos y siglas
+
+- **AWS — Amazon Web Services:** proveedor de servicios de nube utilizado en estas notas.
+  - **Ejemplo:** AWS opera servicios de computación, almacenamiento, bases de datos y redes.
+- **EFS — Amazon Elastic File System:** almacenamiento de archivos administrado, elástico y compartido.
+  - **Ejemplo:** varias instancias EC2 pueden leer los mismos archivos de un sitio web desde EFS.
+- **Sistema de archivos:** organización de archivos y carpetas que utilizan los programas.
+  - **Ejemplo:** `/imagenes/logo.png` representa un archivo dentro de una estructura de carpetas.
+- **NFS — Network File System:** protocolo que permite acceder por red a un sistema de archivos remoto.
+  - **Ejemplo:** Linux puede montar EFS en `/mnt/compartido` mediante NFS.
+- **EC2 — Amazon Elastic Compute Cloud:** servicio para ejecutar computadoras virtuales.
+  - **Ejemplo:** dos instancias EC2 en AZ diferentes pueden montar el mismo EFS regional.
+- **AZ — Availability Zone (Zona de Disponibilidad):** ubicación aislada dentro de una región.
+  - **Ejemplo:** EFS Standard almacena datos de forma regional para acceso desde múltiples AZ.
+- **POSIX — Portable Operating System Interface:** conjunto de convenciones de sistemas tipo Unix, incluidos permisos y operaciones de archivos.
+  - **Ejemplo:** Linux puede aplicar propietario y permisos a un archivo guardado en EFS.
+- **KMS — AWS Key Management Service:** servicio para administrar claves criptográficas.
+  - **Ejemplo:** una clave KMS puede proteger datos de EFS cifrados en reposo.
+- **Throughput:** cantidad de datos transferidos por segundo.
+  - **Ejemplo:** procesar muchos vídeos grandes requiere más throughput que abrir unos pocos documentos.
+- **IA — Infrequent Access (acceso poco frecuente):** clase para archivos consultados con menor frecuencia y con coste de acceso.
+  - **Ejemplo:** informes antiguos pueden moverse automáticamente a EFS IA mediante una política de ciclo de vida.
+- **CMS — Content Management System (sistema de gestión de contenidos):** aplicación para administrar contenido de sitios web.
+  - **Ejemplo:** WordPress es un CMS que puede compartir archivos mediante EFS.
+
+- **AMI — Amazon Machine Image:** plantilla utilizada para lanzar una instancia EC2.
+  - **Ejemplo:** una AMI basada en Linux puede incluir las herramientas necesarias para montar EFS.
+- **API — Application Programming Interface:** interfaz definida para que un programa use operaciones ofrecidas por otro componente.
+  - **Ejemplo:** una aplicación usa operaciones estándar de archivos para abrir y guardar contenido en EFS.
+
+## Idea central
+
+EFS proporciona archivos compartidos por red; no se adjunta como un único disco exclusivo para una sola instancia.
+
+**Ejemplo integrador:** un balanceador distribuye usuarios entre tres servidores web Linux. Los tres montan el mismo EFS, por lo que una imagen subida desde un servidor queda disponible para los demás.
+
+> **Complemento oficial de AWS:** EFS ha incorporado modos y clases nuevas, incluido throughput elástico y EFS Archive. Las cifras y recomendaciones de rendimiento del documento fuente deben contrastarse con la documentación actual.
 
 ## Amazon EFS
 

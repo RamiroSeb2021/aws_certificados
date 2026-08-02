@@ -4,13 +4,56 @@
 > Páginas fuente: 146–149.
 > Índice relacionado: `Solutions Architect Associate/indice-lecturas.md` — sección 8, lectura 12: Certificados SSL/TLS.
 > Método: extracción local con `pdftotext -layout` y revisión visual de las diapositivas relevantes.
+> Verificación oficial: [Create an HTTPS listener for your Application Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html).
 > Se preserva el significado de la fuente; cualquier complemento externo queda identificado.
 
 ## Criterio de edición
 
 - Una lectura del curso por archivo.
-- Redacción y estructura optimizadas para repaso activo.
-- Límites, cifras y caveats se mantienen como aparecen en el PDF y pueden cambiar con el tiempo.
+- Redacción y estructura optimizadas para repaso activo desde fundamentos.
+- Cada concepto nuevo incluye una explicación sencilla y un ejemplo inmediato.
+- Las siglas se desarrollan y explican en su primera aparición conceptual.
+- Los límites y cifras del curso se preservan como contenido de la fuente y pueden cambiar; los complementos actuales se identifican por separado.
+
+## Antes de empezar: conceptos y siglas
+
+- **AWS — Amazon Web Services:** proveedor de servicios de nube utilizado en estas notas.
+  - **Ejemplo:** AWS opera servicios de computación, almacenamiento, bases de datos y redes.
+- **TLS — Transport Layer Security:** protocolo actual que cifra la comunicación y permite verificar la identidad presentada por el servidor.
+  - **Ejemplo:** TLS protege una contraseña mientras viaja del navegador al Load Balancer.
+- **SSL — Secure Sockets Layer:** antecesor histórico de TLS; el nombre “certificado SSL” todavía se usa de manera coloquial.
+  - **Ejemplo:** cuando una consola habla de “SSL/TLS”, normalmente la conexión moderna utiliza TLS.
+- **HTTPS — Hypertext Transfer Protocol Secure:** HTTP transportado dentro de una conexión protegida por TLS.
+  - **Ejemplo:** `https://tienda.example.com` indica que el navegador espera una conexión cifrada.
+- **Certificado digital:** documento firmado que vincula una identidad, como un dominio, con una clave pública.
+  - **Ejemplo:** el certificado de `tienda.example.com` ayuda al navegador a comprobar que habla con ese dominio.
+- **X.509:** estándar de formato utilizado por certificados de servidor.
+  - **Ejemplo:** un listener HTTPS presenta al cliente un certificado X.509.
+- **CA — Certificate Authority (autoridad certificadora):** entidad que valida y firma certificados.
+  - **Ejemplo:** el navegador confía en una CA reconocida y puede validar la firma del certificado.
+- **ACM — AWS Certificate Manager:** servicio de AWS para aprovisionar y administrar certificados.
+  - **Ejemplo:** un ALB puede usar un certificado público administrado por ACM.
+- **SNI — Server Name Indication:** extensión de TLS con la que el cliente indica el nombre de dominio solicitado al comenzar la conexión.
+  - **Ejemplo:** el Load Balancer elige un certificado para `tienda.example.com` y otro para `api.example.com` usando SNI.
+- **Handshake (negociación inicial):** intercambio inicial para acordar seguridad y establecer claves de sesión.
+  - **Ejemplo:** durante el handshake el servidor presenta su certificado.
+- **Listener:** componente que espera conexiones en un protocolo y puerto.
+  - **Ejemplo:** un listener HTTPS escucha normalmente en el puerto `443`.
+
+- **HTTP — Hypertext Transfer Protocol:** protocolo web sin la protección TLS incorporada.
+  - **Ejemplo:** una regla puede redirigir HTTP del puerto `80` hacia HTTPS.
+- **ALB — Application Load Balancer:** balanceador de capa de aplicación que admite múltiples certificados mediante SNI.
+  - **Ejemplo:** un ALB sirve dos dominios con certificados distintos.
+- **NLB — Network Load Balancer:** balanceador de red que puede usar listeners TLS.
+  - **Ejemplo:** un NLB selecciona un certificado para una conexión TLS compatible.
+- **CLB — Classic Load Balancer:** generación anterior con capacidades de certificados más limitadas.
+  - **Ejemplo:** el curso indica un certificado por CLB.
+
+## Idea central
+
+El certificado demuestra una identidad y participa en el establecimiento del cifrado; NO decide a qué servidor se envía la solicitud.
+
+**Ejemplo integrador:** el navegador solicita `api.example.com`, envía ese nombre mediante SNI, el ALB presenta el certificado correcto y después aplica las reglas del listener para escoger un target group.
 
 ## SSL/TLS y certificados
 

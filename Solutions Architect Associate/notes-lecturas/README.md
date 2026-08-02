@@ -3,6 +3,21 @@
 > Fuente principal: `Solutions Architect Associate/AWS-Certified-Solutions-Architect-v5.pdf`.
 > Alcance: lecturas revisadas de las secciones 6 a 10.
 
+## Cómo están redactados
+
+Estas notas están diseñadas para una persona que empieza sin conocimientos previos de redes y con bases limitadas de sistemas y nube:
+
+1. Los conceptos fundamentales aparecen antes de los servicios que dependen de ellos.
+2. Cada sigla se desarrolla y se explica en lenguaje sencillo.
+3. Cada concepto nuevo incluye inmediatamente un ejemplo concreto.
+4. El documento del curso se conserva como fuente principal.
+5. Cada lectura incluye documentación oficial actual de AWS para verificar el tema y aclarar vacíos o cambios.
+6. Los complementos oficiales y las diferencias respecto al curso quedan identificados; no se completan vacíos mediante suposiciones.
+
+## Ruta sugerida
+
+Lea las secciones en orden. Los conceptos de redes de la sección 6 ayudan a entender almacenamiento compartido, balanceadores, bases de datos y DNS en las secciones siguientes.
+
 ## Sección 6 — EC2 nivel Associate
 
 - [Direcciones IP en Amazon EC2](06-ec2-associate/048-direcciones-ip.md)
